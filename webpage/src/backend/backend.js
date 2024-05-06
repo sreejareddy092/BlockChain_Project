@@ -142,7 +142,7 @@ const contractABI = [
 	}
 ]
 
-const contractAddress = "0x83b8964d42a4a1f560fc5a7c7877f25a065ab3fa";
+const contractAddress = "0xb931e1e67f16438d8e7ea8082db6b23d5de309a2";
 
 export async function ConnectToMetaMask() {
   try {

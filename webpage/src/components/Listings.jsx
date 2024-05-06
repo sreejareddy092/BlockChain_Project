@@ -63,6 +63,18 @@ const Listings = ({contract, userAccount, setBuyItemHash, externalRefresh, setEx
     }
   },[ buyItem ]);
 
+  function trimStr(value) {
+    const TRIM_LEN = 17;
+
+    if (!value) {
+      return "?";
+    } else if (value.length > TRIM_LEN) {
+      return value.substring(0, TRIM_LEN) + '…';
+    } else {
+      return value;
+    }
+  }
+
   function getPrice(price) {
     let newPrice = web3.utils.fromWei(price, "ether");
 
@@ -84,11 +96,10 @@ const Listings = ({contract, userAccount, setBuyItemHash, externalRefresh, setEx
     <ul>
     <div className='listing'>
       {items.map(
-        el => (<p className='item' key={el.idx}> {el.item.name} <br/> {el.item.desc} <br/> ⧫ {getPrice(el.item.price)} <br/> { el.item.buyer == 0 ? (<button className="buybutton" onClick={() => setBuyItem({idx: el.idx, price: el.item.price})}>Buy</button>) : (<>Already bought</>) }</p>)
+        el => (<p className='item' key={el.idx}> {trimStr(el.item.name)} <br/> {trimStr(el.item.desc)} <br/> ⧫ {getPrice(el.item.price)} <br/> { el.item.buyer == 0 ? (<button className="buybutton" onClick={() => setBuyItem({idx: el.idx, price: el.item.price})}>Buy</button>) : (<strong>Sold Out</strong>) }</p>)
       )}
       </div>
     </ul>
-    
     </>
   );
 };
