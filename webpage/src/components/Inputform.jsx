@@ -47,21 +47,21 @@ const Inputform = ({contract, userAccount, setListItemHash}) => {
   }, [ listItem ]);
 
   return(
-    <>
-    <input type="text" value={productName}
+    <div className="inputcss">
+    <input type="text" value={productName} className='indi'
             placeholder="Enter product Name"
             onChange={(event) => setProductName(event.target.value)}/>
-    <br/>
-    <input type="text" value={productDesc}
+   
+    <input type="text" value={productDesc} className='indi'
             placeholder="Enter product Description"
             onChange={(event) => setProductDesc(event.target.value)}/>
-    <br/>
-    <input type="number" value={productPrice}
+  
+    <input type="number" value={productPrice} className='indi'
             placeholder="Enter product Price"
             onChange={(event) => setProductPrice(event.target.value)}/>
-    <br/>
-    <button onClick={() => setListItem(true)}>List</button>
-    </>
+   
+    <button className="listbutton" onClick={() => setListItem(true)}>List</button>
+    </div>
   );
 }
 

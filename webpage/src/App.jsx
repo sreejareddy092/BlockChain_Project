@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import Heading from './components/Heading.jsx'
 import Inputform from './components/Inputform.jsx'
 import Listings from './components/Listings.jsx';
@@ -54,14 +54,19 @@ function App() {
   }, [ buyItemHash ]);
 
   return (
-    <div className='main'>
+    <>
     <Heading/>
-    <button onClick={() => setConnect(true)}>Connect Wallet!</button>
-    <br/>
-    <Inputform contract={contract} userAccount={userAccount} setListItemHash={setListItemHash} />
-    <Listings contract={contract} userAccount={userAccount} setBuyItemHash={setBuyItemHash} externalRefresh={listingRefresh} setExternalRefresh={setListingRefresh} />
+    {!userAccount &&
+    <div className='connect' >
+    <button className='connectbutton' onClick={() => setConnect(true)}>Connect Wallet!</button>
     </div>
+    }
+    <br/>
+    {userAccount && <Inputform contract={contract} userAccount={userAccount} setListItemHash={setListItemHash} />}
+    {userAccount && <Listings contract={contract} userAccount={userAccount} setBuyItemHash={setBuyItemHash} externalRefresh={listingRefresh} setExternalRefresh={setListingRefresh} />}
+    </>
   );
+
 }
 
 export default App

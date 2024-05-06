@@ -63,16 +63,32 @@ const Listings = ({contract, userAccount, setBuyItemHash, externalRefresh, setEx
     }
   },[ buyItem ]);
 
+  function getPrice(price) {
+    let newPrice = web3.utils.fromWei(price, "ether");
+
+    if (newPrice < 0.001) {
+      return "< 0.001";
+    } else if (newPrice > 1000) {
+      return "> 1000";
+    } else {
+      return `${newPrice}`;
+    }
+  }
+
   return(
     <>
     <br/>
-    <button onClick={() => setFetchItems(true)}>Refresh</button>
-    <br/>
+    <div className="refresh">
+    <button  className="listbutton" onClick={() => setFetchItems(true)}>Refresh</button>
+    </div>
     <ul>
+    <div className='listing'>
       {items.map(
-        el => (<li key={el.idx}><p>{el.idx} : {el.item.name} : {el.item.desc} : {web3.utils.fromWei(el.item.price, "ether")} : { el.item.buyer == 0 ? (<button onClick={() => setBuyItem({idx: el.idx, price: el.item.price})}>buy</button>) : (<>Already bought</>) }</p></li>)
+        el => (<p className='item' key={el.idx}> {el.item.name} <br/> {el.item.desc} <br/> ⧫ {getPrice(el.item.price)} <br/> { el.item.buyer == 0 ? (<button className="buybutton" onClick={() => setBuyItem({idx: el.idx, price: el.item.price})}>Buy</button>) : (<>Already bought</>) }</p>)
       )}
+      </div>
     </ul>
+    
     </>
   );
 };

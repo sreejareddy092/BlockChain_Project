@@ -1,6 +1,6 @@
 const Heading = () => {
   return (
-    <h1>Arket the Market Place</h1>
+    <h1 className="head">Arket the Market Place</h1>
   );
 }
 

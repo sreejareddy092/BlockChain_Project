@@ -1,3 +1,93 @@
-.main{
-  background-color: snow;
+html,body {
+  margin: 0;
+  padding: 0;
+  background-color:#F1EEDC;
+  font: Avenir;
+}
+
+.head {
+  text-align: center;
+  color: #2c264d;
+}
+
+.connect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputcss {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputcss input {
+  margin-bottom: 10px; 
+}
+
+.indi {
+  padding:3px;
+  font-size: large;
+  width:400px;
+  text-align: center;
+}
+
+.listing {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-left: 200px;
+  margin-right:200px ;
+}
+
+.item {
+  background-color: #BED7DC;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+  justify-content: center;
+  width: 70%;
+  height: 50%;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 1px rgba(0,0,0,.4);
+}
+
+.refresh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.connectbutton {
+  padding: 5px;
+  font-size: large;
+  width: 150px;
+}
+
+.connectbutton:hover {
+  background-color: darkgreen;
+  color:#F1EEDC;
+}
+
+.listbutton {
+  padding: 2px;
+  font-size: large;
+  width: 100px;
+}
+
+.listbutton:hover {
+  background-color: darkgreen;
+  color:#F1EEDC;
+}
+
+.buybutton {
+  padding:5px;
+}
+
+.buybutton:hover {
+  background-color: darkgreen;
+  color:#F1EEDC; 
 }
